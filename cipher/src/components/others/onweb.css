@@ -1,0 +1,31 @@
+.onweb{
+    /* text-align:left; */
+    padding-bottom: 20px;
+    padding-left:20px;
+
+}
+.firstline{
+    display:flex;
+    justify-content:space-between;
+}
+button{
+    width:8%;
+    background-color: rgb(255, 179, 39);
+    color:white;
+    border:0px;
+    margin-right: 20px;
+    /* : 20px; */
+}
+
+.row{
+    padding-top:10px;
+}
+.web{
+    margin-left:20px;
+    width:70%;
+    border:0px;
+
+}
+h6{
+    margin-left:20px;
+}

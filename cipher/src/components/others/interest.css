@@ -1,0 +1,19 @@
+.interest{
+    text-align:left;
+    padding-bottom:50px;
+}
+.firstline{
+    display:flex;
+    justify-content:space-between;
+}
+button{
+    width:8%;
+    background-color: rgb(255, 179, 39);
+    color:white;
+    border:0px;
+}
+h4{
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: #3d3030;
+}
