@@ -77,7 +77,9 @@ const UpNavBar = () => {
             width: 260,
             border: 0,
             borderRadius: "10%",
-            backgroundColor: "beige"
+            backgroundColor: "beige",
+            padding:"10 0 10 0"
+            // height:"40px"
           }}
         />
         <i

@@ -5,5 +5,8 @@
     .dropdown{
         display: none;
     }
-    
+}
+.search{
+    /* height:30px; */
+    overflow: hidden;
 }

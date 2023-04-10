@@ -20,9 +20,14 @@ button{
 .row{
     padding-top:10px;
 }
-.web{
+.input{
     margin-left:20px;
+    background-color: azure;
     width:70%;
+    /* height:20px; */
+}
+.web{
+    margin-left:3px;
     border:0px;
 
 }
