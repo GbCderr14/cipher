@@ -42,14 +42,38 @@ const OnWeb =(props)=>{
           }
         }
         
-    const clickHandler=()=>{
+    const clickHandler=async()=>{
         if(isdisabled===true){
             setIsDisabled(false);
         }
         else{
-            setIsDisabled(true);
-        }
+          setIsDisabled(true);
+          const formData=
+          {
+            "linkedinHandle":value1,
+            "githubHandle":value2,
+            "facebookProfile":value3,
+            "twitter":value4,
+            "instagram":value5,
+            "website":value6
+          }
+          const token=localStorage.getItem('token');
+          await fetch("http://localhost:5000/api/v1/auth/updatedetails", {
+            method: "PUT",
+            body: JSON.stringify(formData),
+            headers: {
+              "Content-Type": "application/json",
+              "authorization":`Bearer ${token}`
+            },
+          })
+            .then((response) => {
+              return response.json();
+            })
+            .then((data) => {
+              console.log(data);
+            });
     }
+  }
    
     return <>
     <div className="onweb">

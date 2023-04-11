@@ -9,13 +9,32 @@ const Interest =(props)=>{
     const valueChangeHandler=(e)=>{
         setValue(e.target.value);
     }
-    const clickHandler=()=>{
+    const clickHandler=async()=>{
         if(isdisabled===true){
             setIsDisabled(false);
         }
         else{
             setIsDisabled(true);
-        }
+          const formData=
+          {
+            "interests":value
+          }
+          const token=localStorage.getItem('token');
+          await fetch("http://localhost:5000/api/v1/auth/updatedetails", {
+            method: "PUT",
+            body: JSON.stringify(formData),
+            headers: {
+              "Content-Type": "application/json",
+              "authorization":`Bearer ${token}`
+            },
+          })
+            .then((response) => {
+              return response.json();
+            })
+            .then((data) => {
+              console.log(data);
+            });
+    }
     }
    
     return <>

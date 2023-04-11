@@ -8,9 +8,6 @@ import Password from './password/password'
 import Interests from './interest/interest'
 
 const Full=()=>{
-    const [name,setName]=useState('');
-    const [email,setEmail]=useState('');
-    const [noOfFollowers,setNoOfFollower]=useState(0);
     const [about,setAbout]=useState('');
     const [linkedinHandle,setLinkedinHandle]=useState('');
     const [githubHandle,setGithubHandle]=useState('');
@@ -21,7 +18,6 @@ const Full=()=>{
     const [highestEducation,setHighestEducation]=useState('');
     const [currentPosition,setCurrentPosition]=useState('');
     const [interests,setInterests]=useState('');
-    const [profilePhoto,setProfilePhoto]=useState('');
 
 
 
@@ -37,9 +33,6 @@ const Full=()=>{
         .then(res=>res.json())
         .then(data=>{
             console.log(data);
-            setName(data.data.name);
-            setEmail(data.data.email);
-            setNoOfFollower(data.data.noOfFollowers);
             setAbout(data.data.about);
             setLinkedinHandle(data.data.linkedinHandle);
             setGithubHandle(data.data.githubHandle);
@@ -49,8 +42,7 @@ const Full=()=>{
             setWebsite(data.data.website);
             setHighestEducation(data.data.highestEducation);
             setCurrentPosition(data.data.currentPosition);
-            setInterests(data.data.interests);
-            setProfilePhoto(data.data.profilePhoto);    
+            setInterests(data.data.interests); 
 
         }
         )

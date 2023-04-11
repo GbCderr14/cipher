@@ -2,6 +2,7 @@ const ErrorResponse=require('../utils/errorResponse');
 const asyncHandler=require('../middleware/async');
 const User=require('../models/userdetail');
 const crypto=require('crypto');
+const path=require('path');
 //@desc Login user
 //@route POST /api/v1/auth/login
 //@access Public
@@ -101,6 +102,43 @@ exports.updatePassword=asyncHandler(async(req,res,next)=>{
 }
 
 )
+
+exports.userPhotoUpload=asyncHandler(async (req,res,next)=>{
+    
+    const user=await User.findById(req.user.id);
+    if(!user){
+        return next(new ErrorResponse(`User with id ${req.user.id} not found `,404));
+    }
+    
+    if(!req.files){
+        // console.log(req.method);
+        return next(new ErrorResponse(`Please upload a file`,400));
+    }
+    const file=req.files.file;  
+    // console.log(file); 
+    //Make sure the image is a photo
+    if(!file.mimetype.startsWith('image')){
+        return next(new ErrorResponse(`Please upload an image file`,400));
+    }
+    //Check file size
+    if(file.size>process.env.MAX_FILE_UPLOAD){
+        return next(new ErrorResponse(`Please upload an image less than ${process.env.MAX_FILE_UPLOAD}`,400));
+    }
+    //Create custom filename
+    file.name=`photo_${user._id}${path.parse(file.name).ext}`;
+    file.mv(`${process.env.FILE_UPLOAD_PATH}/${file.name}`,async err=>{
+        if(err){
+            console.error(err);
+            return next(new ErrorResponse(`Problem with file upload`,500));
+        }
+        await User.findByIdAndUpdate(req.user.id,{profilePhoto:file.name});
+        res.status(200).json({
+            success:true,
+            data:file.name 
+        }) 
+    })
+})
+
 
 // @desc    Log user out / clear cookie'
 // @route   GET /api/v1/auth/logout

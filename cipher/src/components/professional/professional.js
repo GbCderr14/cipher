@@ -26,8 +26,33 @@ const Professional = (props) => {
     }
   }, [props.education, props.position]);
 
-  const clickHandler = () => {
-    setIsDisabled(!isDisabled);
+  const clickHandler = async() => {
+    if(isDisabled===true){
+      setIsDisabled(false);
+  }
+  else{
+    setIsDisabled(true);
+          const formData=
+          {
+            "highestEducation":education,
+            "currentPosition":position
+          }
+          const token=localStorage.getItem('token');
+          await fetch("http://localhost:5000/api/v1/auth/updatedetails", {
+            method: "PUT",
+            body: JSON.stringify(formData),
+            headers: {
+              "Content-Type": "application/json",
+              "authorization":`Bearer ${token}`
+            },
+          })
+            .then((response) => {
+              return response.json();
+            })
+            .then((data) => {
+              console.log(data);
+            });
+    }
   };
 
   const handleEducationChange = (e) => {

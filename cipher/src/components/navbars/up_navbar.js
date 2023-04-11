@@ -63,11 +63,11 @@ const UpNavBar = () => {
         </ul>
       </li>
     </ul>
-    <div className="search">
+         <span style={{marginTop:"1.02%",marginLeft:"1%"}}> <i className="bx bx-search-alt-2" /></span>
+    <div className="search" style={{}}>
       <form className="d-flex" style={{ marginLeft: 20 }}>
-        <button className="btn btn-outline" type="submit">
-          <i className="bx bx-search-alt-2" />
-        </button>
+        {/* <button className="btn btn-outline" type="submit"> */}
+        {/* </button> */}
         <input
           className="form-control me-2"
           type="search"
@@ -78,8 +78,8 @@ const UpNavBar = () => {
             border: 0,
             borderRadius: "10%",
             backgroundColor: "beige",
-            padding:"10 0 10 0"
-            // height:"40px"
+            padding:"10 0 10 0",
+            height:"40px"
           }}
         />
         <i
