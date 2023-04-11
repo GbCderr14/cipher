@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import gaurang from './gaurang.png';
+// import gaurang from './gaurang.png';
 import background from './background.png';
 import { useState,useEffect } from 'react';
 import './banner.css';

@@ -34,10 +34,18 @@ const UserProfile=()=>{
         <div>
             <UpNavBar/>
             <LNavBar/>
-        </div>:<div>
-            <form onSubmit={submitHandler}>
-            <input type="email" required placeholder="email"/>
-            <input type="password" required placeholder="password"/>
+        </div>:<div style={{textAlign:"center"}}>
+            <form onSubmit={submitHandler} style={{textAlign:"left"}}>
+              <h1>Login</h1>
+            <label 
+            htmlFor="email">Email</label>
+            <input type="email" required placeholder="email" style={{width:"300px", marginLeft:"60px"}}/>
+            <br/>
+            <br/>
+            <label
+            htmlFor="password">Password</label>
+            <input type="password" required placeholder="password" style={{width:"300px", marginLeft:"30px"}}/>
+            <br/>
             <button type="submit">Login</button>
             </form>
             </div>}

@@ -67,7 +67,17 @@ const UserSchema = new mongoose.Schema({
   profilePhoto: {
     type: String,
     default: 'no-photo.png'
+  },
+  mobilenumber:{
+    type: String,
+    required: [true, 'Please add a mobile number'],
+    unique: true,
+    match: [
+      /^[0-9]{10}$/,
+      'Please add a valid mobile number'
+    ]
   }
+  
 });
 
 // Encrypt password using bcrypt

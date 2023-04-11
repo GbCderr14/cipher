@@ -10,6 +10,13 @@ const LNavBar = () => {
     document.getElementById("header").classList.toggle("body-pd");
   };
 
+
+  const logoutHandler=()=>{
+    
+    localStorage.removeItem('token');
+    window.location.reload();
+  }
+
   const linkColour = document.querySelectorAll(".nav_link");
   const linkColor = () => {
     if (linkColour) {
@@ -102,6 +109,7 @@ const LNavBar = () => {
               <i
                 className="bx bx-log-out nav_icon"
                 style={{ color: "black" }}
+                onClick={logoutHandler}
               />
               <span className="nav_name">SignOut</span>
             </a>
