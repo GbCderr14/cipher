@@ -38,8 +38,10 @@ exports.login=asyncHandler(async(req,res,next)=>{
 // @route   POST /api/v1/auth/me
 // @access  Private
 exports.getMe=asyncHandler(async(req,res,next)=>{
+    // console.log(req);
 
     const user=await User.findById(req.user.id);
+    console.log(req.cookies);
 
     res.status(200).json({
         success:true,

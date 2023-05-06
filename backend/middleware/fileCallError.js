@@ -8,7 +8,7 @@
         console.log(err.stack.blue);
         //Mongoose bad object Id
         if(err.name==='CastError'){
-            const message=`Bootcamp not found with id of ${err.value}`;
+            const message=`User not found with id of ${err.value}`;
             error=new ErrorResponse(message,404);
         } 
         //Mongoose duplicate key

@@ -25,7 +25,7 @@ connectDB();
 
 //Load route files
 const auth = require("./route/auth");
-const users=require('./route/users');
+// const users=require('./route/users');
 const app = express();
 // app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
@@ -47,14 +47,14 @@ app.use(hpp());
 app.use(cors());
 app.use(express.static(path.join(__dirname,'public')));
 app.use("/api/v1/auth", auth);
-app.use("/api/v1/users", users);
+// app.use("/api/v1/users", users);
 app.use(errorHandler);
 const PORT = process.env.PORT;
 const server = app.listen(
-  PORT,
+  PORT, 
   console.log(
     `Server is running in ${process.env.NODE_ENV} node on PORT ${PORT}`.yellow.bold
-  )
+  ) 
 );
 
 //Handle unhandled promise rejections

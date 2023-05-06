@@ -23,6 +23,7 @@ const Full=()=>{
 
     const fetching_detail=()=>{
         let token=localStorage.getItem('token');
+        
         fetch('http://localhost:5000/api/v1/auth/me', {
             method: "GET",
             headers: {
